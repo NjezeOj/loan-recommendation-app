@@ -1,9 +1,13 @@
-import * as React from 'react';
+import React, { useState } from 'react'
 import Avatar from '@mui/material/Avatar';
+import axios from 'axios'
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
+import { useNavigate } from 'react-router';
+import {
+    Link
+} from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -14,7 +18,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
+            <Link to="#" color="inherit">
                 Team Elevate
             </Link>{' '}
             {new Date().getFullYear()}
@@ -25,8 +29,9 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
-    const handleSubmit = (event) => {
+export const Login = (props) => {
+    let navigate = useNavigate()
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         // eslint-disable-next-line no-console
@@ -34,6 +39,29 @@ export default function Login() {
             email: data.get('email'),
             password: data.get('password'),
         });
+
+        let email = data.get('email')
+        let password = data.get('password')
+        try {
+
+            const res = await axios.post(
+                'https://elevatei4g.herokuapp.com/api/v1/company/login',
+                { email, password},
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    }
+                }
+            );
+            
+            localStorage.setItem('token', res.data.token)
+            navigate('/dashboard')
+
+
+        } catch (err) {
+            alert("Wrong Password or UserName")
+            console.log("error:", err)
+        }
     };
 
     return (
@@ -86,9 +114,11 @@ export default function Login() {
                         <Grid container>
 
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                
+                                <Link to="signup" variant="body2">
                                     {"Don't have an account? Sign Up"}
                                 </Link>
+                            
                             </Grid>
                         </Grid>
                     </Box>
