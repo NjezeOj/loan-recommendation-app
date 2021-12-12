@@ -30,6 +30,8 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper'; */
 
 import NewUser from '../pages/NewUser';
+import { Login } from '../pages/Login';
+import SignIn from '../pages/SignUp';
 /* import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders'; */
@@ -97,14 +99,14 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
-    const [headerValue, setHeaderValue] = React.useState("Dashboard");
+    const [headerValue, setHeaderValue] = React.useState("");
     const toggleDrawer = () => {
         setOpen(!open);
     };
     const onChangeDashboard = () => setHeaderValue("Users List")
     const onChangeNewUser = () => setHeaderValue("New User")
     return (
-        <BrowserRouter>
+        
             <ThemeProvider theme={mdTheme}>
                 <Box sx={{ display: 'flex' }}>
                     <CssBaseline />
@@ -152,7 +154,7 @@ function DashboardContent() {
                         </Toolbar>
                         <Divider />
                         <List>
-                            <Link to="/" className="link">
+                            <Link to="/userslist" className="link">
                                 <ListItem onClick={onChangeDashboard} button>
                                     <ListItemIcon>
                                         <TableChart />
@@ -193,7 +195,9 @@ function DashboardContent() {
                             {/* <User/> */}
 
                             <Routes>
-                                <Route path="/" element={<UserList />}/>
+                                <Route path="/" element={<Login/>} />
+                                <Route path="/signup" element={<SignIn />} />
+                                <Route path="/userslist" element={<UserList />}/>
                                 <Route path="/newuser" element={<NewUser />} />
                                 <Route path="/user/:_id" element={<User/>} />
                             </Routes>
@@ -203,7 +207,7 @@ function DashboardContent() {
                     </Box>
                 </Box>
             </ThemeProvider>
-        </BrowserRouter>
+        
     );
 }
 
