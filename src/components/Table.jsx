@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { userRows } from './dummyData';
-
 import "./table.css";
 import { DataGrid } from '@mui/x-data-grid';
 
@@ -33,7 +32,7 @@ export default function Table() {
     ];
 
     return (
-        <div className= "tableGrid" style={{ height: 400, width: '97%' }}>
+        <div className= "tableGrid" style={{ height: 400, width: '94%' }}>
             <DataGrid
                 rows={data}
                 columns={columns}

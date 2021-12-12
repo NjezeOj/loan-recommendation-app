@@ -7,7 +7,7 @@ export default function App() {
             onClose: () => console.log('Widget closed'),
             onLoad: () => console.log('Widget loaded successfully'),
             onSuccess: ({ code }) => console.log(`Linked successfully: ${code}`),
-            key: "test_pk_waphVCf5p8YqbEavAEQy"
+            key: "test_pk_RqyBLsMvlitY9xFEt0Hi"
         })
 
         monoInstance.setup()

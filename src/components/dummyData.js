@@ -10,6 +10,35 @@ export const userRows = [
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
 ];
 
+
+export const userMonoData = [
+    /* {
+        "_id": "61b54481400a9c3639950fef",
+        "companyId": "61b54467400a9c3639950fec",
+        "phone": "",
+        "monoId": "61b543a49b3deb147dec46ac",
+        "monoCode": "code_nMXSqvoJT2n9KTAoupAF",
+        "monoStatus": false,
+        "createdAt": "2021-12-12T00:38:25.028Z",
+        "updatedAt": "2021-12-12T00:38:25.028Z",
+        "__v": 0
+    }, */
+    {
+        "_id": "61b544c5400a9c3639950ff2",
+        "companyId": "61b54467400a9c3639950fec",
+        "phone": "08060000000",
+        "monoId": "61b544b09b3deb147dec56e5",
+        "monoCode": "code_Kq3nx5z6s38Z7cbSEnW1",
+        "monoStatus": false,
+        "createdAt": "2021-12-12T00:39:33.842Z",
+        "updatedAt": "2021-12-12T01:13:37.185Z",
+        "__v": 0,
+        "address": "VICARAGE IYERU",
+        "email": "email@yahoo.com",
+        "gender": "Male"
+    }
+]
+
 export const userData = [
     {
         name: 'Jan',
@@ -61,3 +90,5 @@ export const userData = [
     }
 
 ];
+
+

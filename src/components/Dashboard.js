@@ -1,6 +1,18 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { ChevronLeft, Notifications, Menu } from "@material-ui/icons";
+import { ChevronLeft, Menu, TableChart} from "@material-ui/icons";
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link
+} from "react-router-dom";
+import "./listItems.css";
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { Dashboard, People } from "@material-ui/icons";
+import App from '../App';
 import UserList from './UserList';
 import User from "./User";
 import CssBaseline from '@mui/material/CssBaseline';
@@ -16,27 +28,24 @@ import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 /* import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper'; */
-import Link from '@mui/material/Link';
 
-
-import { mainListItems} from './listItems';
 import NewUser from '../pages/NewUser';
 /* import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders'; */
 
-function Copyright(props) {
+/* function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="#">
-                Team Elevate
-            </Link>{' '}
+            
+            Team Elevate
+            
             {new Date().getFullYear()}
             {'.'}
         </Typography>
     );
-}
+} */
 
 const drawerWidth = 240;
 
@@ -88,85 +97,116 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
     const [open, setOpen] = React.useState(true);
+    const [headerValue, setHeaderValue] = React.useState("Dashboard");
     const toggleDrawer = () => {
         setOpen(!open);
     };
-
+    const onChangeDashboard = () => setHeaderValue("Users List")
+    const onChangeNewUser = () => setHeaderValue("New User")
     return (
-        <ThemeProvider theme={mdTheme}>
-            <Box sx={{ display: 'flex' }}>
-                <CssBaseline />
-                <AppBar position="absolute" open={open}>
-                    <Toolbar
-                        sx={{
-                            pr: '24px', // keep right padding when drawer closed
-                        }}
-                    >
-                        <IconButton
-                            edge="start"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={toggleDrawer}
+        <BrowserRouter>
+            <ThemeProvider theme={mdTheme}>
+                <Box sx={{ display: 'flex' }}>
+                    <CssBaseline />
+                    <AppBar position="absolute" open={open}>
+                        <Toolbar
                             sx={{
-                                marginRight: '36px',
-                                ...(open && { display: 'none' }),
+                                pr: '24px', // keep right padding when drawer closed
                             }}
                         >
-                            <Menu />
-                        </IconButton>
-                        <Typography
-                            component="h1"
-                            variant="h6"
-                            color="inherit"
-                            noWrap
-                            sx={{ flexGrow: 1 }}
+                            <IconButton
+                                edge="start"
+                                color="inherit"
+                                aria-label="open drawer"
+                                onClick={toggleDrawer}
+                                sx={{
+                                    marginRight: '36px',
+                                    ...(open && { display: 'none' }),
+                                }}
+                            >
+                                <Menu />
+                            </IconButton>
+                            <Typography
+                                component="h1"
+                                variant="h6"
+                                color="inherit"
+                                noWrap
+                                sx={{ flexGrow: 1 }}
+                            >
+                                {headerValue}
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                    <Drawer variant="permanent" open={open}>
+                        <Toolbar
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'flex-end',
+                                px: [1],
+                            }}
                         >
-                            Dashboard
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer variant="permanent" open={open}>
-                    <Toolbar
+                            <IconButton onClick={toggleDrawer}>
+                                <ChevronLeft />
+                            </IconButton>
+                        </Toolbar>
+                        <Divider />
+                        <List>
+                            <Link to="/" className="link">
+                                <ListItem onClick={onChangeDashboard} button>
+                                    <ListItemIcon>
+                                        <TableChart />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Users List" />
+                                </ListItem>
+                            </Link>
+
+                            <Link to="/newuser" className="link">
+                                <ListItem onClick={onChangeNewUser} button>
+                                    <ListItemIcon>
+                                        <People />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Add New Customers" />
+                                </ListItem>
+                            </Link>
+                        </List>
+
+                    </Drawer>
+                    <Box
+                        component="main"
                         sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-end',
-                            px: [1],
+                            backgroundColor: (theme) =>
+                                theme.palette.mode === 'light'
+                                    ? theme.palette.grey[100]
+                                    : theme.palette.grey[900],
+                            flexGrow: 1,
+                            height: '100vh',
+                            overflow: 'auto',
                         }}
                     >
-                        <IconButton onClick={toggleDrawer}>
-                            <ChevronLeft />
-                        </IconButton>
-                    </Toolbar>
-                    <Divider />
-                    <List>{mainListItems}</List>
-                </Drawer>
-                <Box
-                    component="main"
-                    sx={{
-                        backgroundColor: (theme) =>
-                            theme.palette.mode === 'light'
-                                ? theme.palette.grey[100]
-                                : theme.palette.grey[900],
-                        flexGrow: 1,
-                        height: '100vh',
-                        overflow: 'auto',
-                    }}
-                >
-                    <Toolbar />
-                    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-                        {/* Routable Components */}
-                        {/* <UserList/> */}
-                        {/* <NewUser/> */}
-                        <User/>
-                        <Copyright sx={{ pt: 4 }} />
-                    </Container>
+                        <Toolbar />
+
+                        <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+                            {/* Routable Components */}
+
+                            {/* <NewUser/> */}
+                            {/* <User/> */}
+
+                            <Routes>
+                                <Route path="/" element={<UserList />}/>
+                                <Route path="/newuser" element={<NewUser />} />
+                                <Route path="/user/:_id" element={<User/>} />
+                            </Routes>
+
+                            {/* <Copyright sx={{ pt: 4 }} /> */}
+                        </Container>
+                    </Box>
                 </Box>
-            </Box>
-        </ThemeProvider>
+            </ThemeProvider>
+        </BrowserRouter>
     );
 }
 
-export default function Dashboard() {
+export default function Home() {
     return <DashboardContent />;
 }
