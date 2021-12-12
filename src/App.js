@@ -1,17 +1,22 @@
 import "./App.css";
-//import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import MonoConnect from "./pages/MonoConnect";
-// Login from "./pages/Login"
+import {Login} from "./pages/Login";
+import UserList from "./components/UserList";
+import NewUser from "./pages/NewUser";
+import User from "./components/User"
 
 
 function App() {
   return (
-      <div>
-        <Dashboard/>
-        {/* <Login/> */}
-        {/* <MonoConnect/> */}
-      </div>
+    <BrowserRouter>
+      <Dashboard/>
+      {/* <MonoConnect/> */}
+      
+    </BrowserRouter>
+    
   );
 }
 

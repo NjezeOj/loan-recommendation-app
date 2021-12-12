@@ -1,6 +1,8 @@
 import "./newUser.css";
 
 export default function NewUser() {
+
+    /* OnClick Submit show alert. e.preventDefault */
     return (
         <div className="newUser">
             <form className="newUserForm">
