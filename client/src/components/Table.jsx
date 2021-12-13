@@ -49,7 +49,7 @@ export default function StickyHeadTable({identifier}) {
 
         getTableData();
 
-    }, [])
+    })
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);

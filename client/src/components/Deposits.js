@@ -21,7 +21,7 @@ export default function Deposits({identifier}) {
 
         getIncome();
 
-    }, [])
+    })
     return (
         <React.Fragment>
             <Title>Average Income</Title>

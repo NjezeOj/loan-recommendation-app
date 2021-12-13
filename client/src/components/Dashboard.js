@@ -29,10 +29,10 @@ import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper'; */
 
 import NewUser from '../pages/NewUser';
-import { Login } from '../pages/Login';
+/* import { Login } from '../pages/Login'; */
 import MonoConnect from '../pages/MonoConnect';
 import LoanPrediction from "../pages/LoanPrediction";
-import SignIn from '../pages/SignUp';
+/* import SignIn from '../pages/SignUp'; */
 /* import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders'; */

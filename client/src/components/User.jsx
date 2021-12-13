@@ -11,7 +11,7 @@ import axios from 'axios';
 
 const User = () => {
     const params = useParams()
-    const [monoId, setId] = useState(params._id)
+    const [monoId] = useState(params._id)
     
     //const [data, setData] = useState([])
 
@@ -28,7 +28,7 @@ const User = () => {
 
         getIncome();
 
-    }, [])
+    })
     return <div>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
