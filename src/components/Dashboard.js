@@ -31,6 +31,7 @@ import Paper from '@mui/material/Paper'; */
 import NewUser from '../pages/NewUser';
 import { Login } from '../pages/Login';
 import MonoConnect from '../pages/MonoConnect';
+import LoanPrediction from "../pages/LoanPrediction";
 import SignIn from '../pages/SignUp';
 /* import Chart from './Chart';
 import Deposits from './Deposits';
@@ -107,6 +108,7 @@ function DashboardContent() {
     const onChangeDashboard = () => setHeaderValue("Users List")
     const onChangeNewUser = () => setHeaderValue("New User")
     const onChangeMonoConnect = () => setHeaderValue("Mono Connect")
+    const onChangePrediction = () => setHeaderValue("Loan Prediction")
 
     const handleLogout = () => {
         localStorage.removeItem('token')                
@@ -177,6 +179,14 @@ function DashboardContent() {
                                     <ListItemText primary="Users List" />
                                 </ListItem>
                             </Link>
+                            <Link to="/loanprediction" className="link">
+                            <ListItem onClick={onChangePrediction} button>
+                                    <ListItemIcon>
+                                        <TableChart />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Loan Prediction" />
+                                </ListItem>
+                            </Link>
 
                             <Link to="/newuser" className="link">
                                 <ListItem onClick={onChangeNewUser} button>
@@ -223,6 +233,7 @@ function DashboardContent() {
                                 <Route path="/signup" element={<SignIn />} />
                                 <Route path="/userslist" element={<UserList />}/> */}
                                 <Route path="/" element={<UserList />}/>
+                                <Route path="/loanprediction" element={<LoanPrediction />}/>
                                 <Route path="/newuser" element={<NewUser />} />
                                 <Route path="/user/:_id" element={<User/>} />
                                 <Route path="/monoconnect" element={<MonoConnect/>}/>
