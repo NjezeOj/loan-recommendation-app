@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import { ChevronLeft, Menu, TableChart} from "@material-ui/icons";
+import { ChevronLeft, Menu, TableChart } from "@material-ui/icons";
 import {
-    BrowserRouter,
     Routes,
     Route,
     Link
@@ -11,8 +10,8 @@ import "./listItems.css";
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { Dashboard, People } from "@material-ui/icons";
-import App from '../App';
+import { People} from "@material-ui/icons";
+import { useNavigate } from 'react-router';
 import UserList from './UserList';
 import User from "./User";
 import CssBaseline from '@mui/material/CssBaseline';
@@ -24,13 +23,14 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
+
 import Container from '@mui/material/Container';
 /* import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper'; */
 
 import NewUser from '../pages/NewUser';
 import { Login } from '../pages/Login';
+import MonoConnect from '../pages/MonoConnect';
 import SignIn from '../pages/SignUp';
 /* import Chart from './Chart';
 import Deposits from './Deposits';
@@ -98,13 +98,25 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
+    let navigate = useNavigate()
     const [open, setOpen] = React.useState(true);
-    const [headerValue, setHeaderValue] = React.useState("");
+    const [headerValue, setHeaderValue] = React.useState("Users List");
     const toggleDrawer = () => {
         setOpen(!open);
     };
     const onChangeDashboard = () => setHeaderValue("Users List")
     const onChangeNewUser = () => setHeaderValue("New User")
+    const onChangeMonoConnect = () => setHeaderValue("Mono Connect")
+
+    const handleLogout = () => {
+        localStorage.removeItem('token')                
+        navigate("/")
+        window.location.reload()
+    }
+
+    if (!localStorage.getItem('token')) {
+        navigate("/")
+    }
     return (
         
             <ThemeProvider theme={mdTheme}>
@@ -137,6 +149,9 @@ function DashboardContent() {
                             >
                                 {headerValue}
                             </Typography>
+                            <IconButton onClick={handleLogout} color="inherit">
+    
+                            </IconButton>
                         </Toolbar>
                     </AppBar>
                     <Drawer variant="permanent" open={open}>
@@ -154,7 +169,7 @@ function DashboardContent() {
                         </Toolbar>
                         <Divider />
                         <List>
-                            <Link to="/userslist" className="link">
+                            <Link to="/" className="link">
                                 <ListItem onClick={onChangeDashboard} button>
                                     <ListItemIcon>
                                         <TableChart />
@@ -169,6 +184,15 @@ function DashboardContent() {
                                         <People />
                                     </ListItemIcon>
                                     <ListItemText primary="Add New Customers" />
+                                </ListItem>
+                            </Link>
+
+                            <Link to="/monoconnect" className="link">
+                                <ListItem onClick={onChangeMonoConnect} button>
+                                    <ListItemIcon>
+                                        <People />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Mono Connect" />
                                 </ListItem>
                             </Link>
                         </List>
@@ -195,11 +219,14 @@ function DashboardContent() {
                             {/* <User/> */}
 
                             <Routes>
-                                <Route path="/" element={<Login/>} />
+                                {/* <Route path="/" element={<Login/>} />
                                 <Route path="/signup" element={<SignIn />} />
-                                <Route path="/userslist" element={<UserList />}/>
+                                <Route path="/userslist" element={<UserList />}/> */}
+                                <Route path="/" element={<UserList />}/>
                                 <Route path="/newuser" element={<NewUser />} />
                                 <Route path="/user/:_id" element={<User/>} />
+                                <Route path="/monoconnect" element={<MonoConnect/>}/>
+                                
                             </Routes>
 
                             {/* <Copyright sx={{ pt: 4 }} /> */}

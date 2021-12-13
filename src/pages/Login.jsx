@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Avatar from '@mui/material/Avatar';
-import axios from 'axios'
+import axios from 'axios';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
@@ -53,9 +53,9 @@ export const Login = (props) => {
                     }
                 }
             );
-            
-            localStorage.setItem('token', res.data.token)
-            navigate('/dashboard')
+            //console.log(res.data.user)
+            localStorage.setItem('token', res.data.user)
+            navigate('/userslist')
 
 
         } catch (err) {

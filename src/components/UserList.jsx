@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { useState } from 'react';
-import { userMonoData } from './dummyData';
-import { DeleteOutline } from "@material-ui/icons";
+import { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
 import {
     Link
 } from "react-router-dom";
@@ -17,49 +18,20 @@ import Paper from '@mui/material/Paper';
 
 
 export default function UserList() {
-    const [data, setData] = useState(userMonoData)
+    const [data, setData] = useState([])
+    //let userId = localStorage.getItem("token");
+    const getUsers = async() => {
+        const res = await axios.get('https://elevatei4g.herokuapp.com/api/v1/company/users/61b54467400a9c3639950fec')
+        //const res = await axios.get(`https://elevatei4g.herokuapp.com/api/v1/company/users/${localStorage.getItem("token")}`);
+        //const res = await axios.get('https://elevatei4g.herokuapp.com/api/v1/company/users/'+userId)
+        console.log(localStorage.getItem("token"))
+        setData(res.data.data)
+    }
 
-   /*  const handleDelete = (id) => {
-        setData(data.filter(item => item.id !== id))
-    } */
-
-    /* const columns = [
-        { field: 'id', headerName: 'ID', width: 70 },
-        { field: 'firstName', headerName: 'First name', width: 130 },
-        { field: 'lastName', headerName: 'Last name', width: 130 },
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            width: 90,
-        },
-        {
-            field: 'fullName',
-            headerName: 'Full name',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 160,
-            valueGetter: (params) =>
-                `${params.getValue(params.id, 'firstName') || ''} ${params.getValue(params.id, 'lastName') || ''
-                }`,
-        },
-        {
-            field: 'action',
-            headerName: 'Action',
-            width: 150,
-            renderCell: (params) => {
-                return (
-                    <>
-                        {/* <Link to={"/user/" + params.row.id}>
-                        <button className="userListEdit">Edit</button>
-                        {/* </Link> 
-                        <DeleteOutline className="userListDelete" onClick={() => handleDelete(params.id)} />
-                    </>
-
-                )
-            }
-        },
-    ]; */
+    useEffect(() => {
+        getUsers();
+    }, [])
+   
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -84,7 +56,7 @@ export default function UserList() {
                             <TableCell align="right">{row.gender}</TableCell>
                             <TableCell align="right">{row.address}</TableCell>
                             <TableCell align="right">{row.phone}</TableCell>
-                            <TableCell align="right"><Link to={"/user/" + row._id}><button className="userListEdit">Edit</button></Link></TableCell>
+                            <TableCell align="right"><Link to={"/user/" + row.monoId}><button className="userListEdit">Edit</button></Link></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

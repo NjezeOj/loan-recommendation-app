@@ -10,6 +10,7 @@ import {
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { useNavigate } from 'react-router';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -29,10 +30,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn(props) {
-
+  let navigate = useNavigate()
+  navigate('/')
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     console.log({
