@@ -179,30 +179,30 @@ function DashboardContent() {
                                     <ListItemText className="link" primary="Users List" />
                                 </ListItem>
                             </Link>
-                            <Link href="/loanprediction" className="link">
+                            <Link href="/loanprediction" style={{ textDecoration: 'none' }}>
                             <ListItem onClick={onChangePrediction} button>
                                     <ListItemIcon>
                                         <TableChart />
                                     </ListItemIcon>
-                                    <ListItemText primary="Loan Prediction" />
+                                    <ListItemText className="link" primary="Loan Prediction" />
                                 </ListItem>
                             </Link>
 
-                            <Link href="/newuser" className="link">
+                        <   Link href="/newuser" style={{ textDecoration: 'none' }}>
                                 <ListItem onClick={onChangeNewUser} button>
                                     <ListItemIcon>
                                         <People />
                                     </ListItemIcon>
-                                    <ListItemText primary="Add New Customers" />
+                                    <ListItemText className="link" primary="Add New Customers" />
                                 </ListItem>
                             </Link>
 
-                            <Link href="/monoconnect" className="link">
+                            <Link href="/monoconnect" style={{ textDecoration: 'none' }}>
                                 <ListItem onClick={onChangeMonoConnect} button>
                                     <ListItemIcon>
                                         <People />
                                     </ListItemIcon>
-                                    <ListItemText primary="Mono Connect" />
+                                    <ListItemText className="link" primary="Mono Connect" />
                                 </ListItem>
                             </Link>
                         </List>

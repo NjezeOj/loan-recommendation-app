@@ -3,9 +3,7 @@ import { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import {
-    Link
-} from "react-router-dom";
+import Link from '@mui/material/Link';
 import "./userList.css";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -56,7 +54,7 @@ export default function UserList() {
                             <TableCell align="right">{row.gender}</TableCell>
                             <TableCell align="right">{row.address}</TableCell>
                             <TableCell align="right">{row.phone}</TableCell>
-                            <TableCell align="right"><Link to={"/user/" + row.monoId}><button className="userListEdit">Edit</button></Link></TableCell>
+                            <TableCell align="right"><Link href={"/user/" + row.monoId}><button className="userListEdit">Edit</button></Link></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
