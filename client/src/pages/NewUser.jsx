@@ -5,7 +5,7 @@ export default function NewUser() {
     /* OnClick Submit show alert. e.preventDefault */
     return (
         <div className="newUser">
-            <h1 className="userTitle">Edit User</h1>
+            <h1 className="userTitle">Add New User</h1>
             <form className="newUserForm">
                 {/* <div className="newUserItem">
                     <label>Username</label>

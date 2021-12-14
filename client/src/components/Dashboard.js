@@ -101,14 +101,10 @@ const mdTheme = createTheme();
 function DashboardContent() {
     //let navigate = useNavigate()
     const [open, setOpen] = React.useState(true);
-    const [headerValue, setHeaderValue] = React.useState("");
     const toggleDrawer = () => {
         setOpen(!open);
     };
-    const onChangeDashboard = () => setHeaderValue("Users List")
-    const onChangeNewUser = () => setHeaderValue("New User")
-    const onChangeMonoConnect = () => setHeaderValue("Mono Connect")
-    const onChangePrediction = () => setHeaderValue("Loan Prediction")
+    
 
     /* const handleLogout = () => {
         localStorage.removeItem('token')                
@@ -149,7 +145,7 @@ function DashboardContent() {
                                 noWrap
                                 sx={{ flexGrow: 1 }}
                             >
-                                {headerValue}
+                                
                             </Typography>
                         </Toolbar>
                     </AppBar>
@@ -169,7 +165,7 @@ function DashboardContent() {
                         <Divider />
                         <List>
                             <Link href="/" style={{ textDecoration: 'none' }}>
-                            <ListItem onClick={onChangeDashboard} button>
+                            <ListItem button>
                                     <ListItemIcon>
                                         <TableChart />
                                     </ListItemIcon>
@@ -177,7 +173,7 @@ function DashboardContent() {
                                 </ListItem>
                             </Link>
                             <Link href="/loanprediction" style={{ textDecoration: 'none' }}>
-                            <ListItem onClick={onChangePrediction} button>
+                            <ListItem  button>
                                     <ListItemIcon>
                                         <TableChart />
                                     </ListItemIcon>
@@ -186,7 +182,7 @@ function DashboardContent() {
                             </Link>
 
                            <Link href="/newuser" style={{ textDecoration: 'none' }}>
-                                <ListItem onClick={onChangeNewUser} button>
+                                <ListItem  button>
                                     <ListItemIcon>
                                         <People />
                                     </ListItemIcon>
@@ -195,7 +191,7 @@ function DashboardContent() {
                             </Link>
 
                             <Link href="/monoconnect" style={{ textDecoration: 'none' }}>
-                                <ListItem onClick={onChangeMonoConnect} button>
+                                <ListItem button>
                                     <ListItemIcon>
                                         <People />
                                     </ListItemIcon>
