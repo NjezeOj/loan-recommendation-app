@@ -3,9 +3,9 @@ import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { ChevronLeft, Menu, TableChart } from "@material-ui/icons";
 import {
     Routes,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
+import Link from '@mui/material/Link';
 import "./listItems.css";
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -171,15 +171,15 @@ function DashboardContent() {
                         </Toolbar>
                         <Divider />
                         <List>
-                            <Link to="/" className="link">
-                                <ListItem onClick={onChangeDashboard} button>
+                            <Link href="/" style={{ textDecoration: 'none' }}>
+                            <ListItem onClick={onChangeDashboard} button>
                                     <ListItemIcon>
                                         <TableChart />
                                     </ListItemIcon>
-                                    <ListItemText primary="Users List" />
+                                    <ListItemText className="link" primary="Users List" />
                                 </ListItem>
                             </Link>
-                            <Link to="/loanprediction" className="link">
+                            <Link href="/loanprediction" className="link">
                             <ListItem onClick={onChangePrediction} button>
                                     <ListItemIcon>
                                         <TableChart />
@@ -188,7 +188,7 @@ function DashboardContent() {
                                 </ListItem>
                             </Link>
 
-                            <Link to="/newuser" className="link">
+                            <Link href="/newuser" className="link">
                                 <ListItem onClick={onChangeNewUser} button>
                                     <ListItemIcon>
                                         <People />
@@ -197,7 +197,7 @@ function DashboardContent() {
                                 </ListItem>
                             </Link>
 
-                            <Link to="/monoconnect" className="link">
+                            <Link href="/monoconnect" className="link">
                                 <ListItem onClick={onChangeMonoConnect} button>
                                     <ListItemIcon>
                                         <People />
