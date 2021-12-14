@@ -54,7 +54,7 @@ export default function UserList() {
                             <TableCell align="right">{row.gender}</TableCell>
                             <TableCell align="right">{row.address}</TableCell>
                             <TableCell align="right">{row.phone}</TableCell>
-                            <TableCell align="right"><Link href={"/user/" + row.monoId}><button className="userListEdit">Edit</button></Link></TableCell>
+                            <TableCell align="right"><Link href={"/user/" + row.monoId}><button className="userListEdit">View Status</button></Link></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

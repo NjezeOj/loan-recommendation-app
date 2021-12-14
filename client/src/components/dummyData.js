@@ -91,4 +91,147 @@ export const userData = [
 
 ];
 
+export const userTransactions = [
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 6000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "debit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 17000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    },
+
+
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 8000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "credit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 23000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    },
+
+
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 5000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "credit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 13000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    },
+
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 1000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "debit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 8000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    },
+
+
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 1000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "debit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 9000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    },
+
+
+    {
+        "accountNumber": "1234567890",
+        "amount": 10000,
+        "currency": "NGN",
+        "channel": "ATM",
+        "type": "credit",
+        "narration": "ATM Withdrawal/Karaole LANG",
+        "referenceId": "WDS12345678909987",
+        "transactionTime": "2019-01-02T19:58:47.1234567",
+        "transactionType": "ATM Withdrawal",
+        "date": "2019-01-02",
+        "balance": 10000,
+        "expansionFields": [
+            {
+                "id": "Some random ID",
+                "description": "Some random text",
+                "type": "Some random type",
+                "value": "Some value"
+            }
+        ]
+    }
+
+]
 
