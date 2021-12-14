@@ -11,7 +11,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { People} from "@material-ui/icons";
-import { useNavigate } from 'react-router';
+//import { useNavigate } from 'react-router';
 import UserList from './UserList';
 import User from "./User";
 import CssBaseline from '@mui/material/CssBaseline';
@@ -99,7 +99,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
-    let navigate = useNavigate()
+    //let navigate = useNavigate()
     const [open, setOpen] = React.useState(true);
     const [headerValue, setHeaderValue] = React.useState("Users List");
     const toggleDrawer = () => {
@@ -110,7 +110,7 @@ function DashboardContent() {
     const onChangeMonoConnect = () => setHeaderValue("Mono Connect")
     const onChangePrediction = () => setHeaderValue("Loan Prediction")
 
-    const handleLogout = () => {
+    /* const handleLogout = () => {
         localStorage.removeItem('token')                
         navigate("/")
         window.location.reload()
@@ -118,7 +118,7 @@ function DashboardContent() {
 
     if (!localStorage.getItem('token')) {
         navigate("/")
-    }
+    } */
     return (
         
             <ThemeProvider theme={mdTheme}>
@@ -151,9 +151,6 @@ function DashboardContent() {
                             >
                                 {headerValue}
                             </Typography>
-                            <IconButton onClick={handleLogout} color="inherit">
-    
-                            </IconButton>
                         </Toolbar>
                     </AppBar>
                     <Drawer variant="permanent" open={open}>
@@ -188,7 +185,7 @@ function DashboardContent() {
                                 </ListItem>
                             </Link>
 
-                        <   Link href="/newuser" style={{ textDecoration: 'none' }}>
+                           <Link href="/newuser" style={{ textDecoration: 'none' }}>
                                 <ListItem onClick={onChangeNewUser} button>
                                     <ListItemIcon>
                                         <People />
@@ -206,7 +203,6 @@ function DashboardContent() {
                                 </ListItem>
                             </Link>
                         </List>
-
                     </Drawer>
                     <Box
                         component="main"
