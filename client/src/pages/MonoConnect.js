@@ -31,6 +31,7 @@ export default function App() {
 
     return (
         <div>
+            <h1 className="userTitle">Mono Connect</h1>
             <button className="button" onClick={() => monoConnect.open()}>
                 Link account with Mono
             </button>

@@ -101,7 +101,7 @@ const mdTheme = createTheme();
 function DashboardContent() {
     //let navigate = useNavigate()
     const [open, setOpen] = React.useState(true);
-    const [headerValue, setHeaderValue] = React.useState("Users List");
+    const [headerValue, setHeaderValue] = React.useState("");
     const toggleDrawer = () => {
         setOpen(!open);
     };

@@ -30,36 +30,39 @@ export default function UserList() {
         getUsers();
     }, [])
    
-    return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Email</TableCell>
-                        <TableCell align="right">Gender</TableCell>
-                        <TableCell align="right">Address</TableCell>
-                        <TableCell align="right">Phone Number</TableCell>
-                        <TableCell align="right">Action</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {data.map((row) => (
-                        <TableRow
-                            key={row._id}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row.email}
-                            </TableCell>
-                            <TableCell align="right">{row.gender}</TableCell>
-                            <TableCell align="right">{row.address}</TableCell>
-                            <TableCell align="right">{row.phone}</TableCell>
-                            <TableCell align="right"><Link href={"/user/" + row.monoId}><button className="userListEdit">View Status</button></Link></TableCell>
+    return (        
+        <div>
+            <h1 className="userTitle">Users List</h1>
+            <TableContainer component={Paper}>
+                <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Email</TableCell>
+                            <TableCell align="right">Gender</TableCell>
+                            <TableCell align="right">Address</TableCell>
+                            <TableCell align="right">Phone Number</TableCell>
+                            <TableCell align="right">Action</TableCell>
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                        {data.map((row) => (
+                            <TableRow
+                                key={row._id}
+                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                                <TableCell component="th" scope="row">
+                                    {row.email}
+                                </TableCell>
+                                <TableCell align="right">{row.gender}</TableCell>
+                                <TableCell align="right">{row.address}</TableCell>
+                                <TableCell align="right">{row.phone}</TableCell>
+                                <TableCell align="right"><Link href={"/user/" + row.monoId}><button className="userListEdit">View Status</button></Link></TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
     );
     
 }
