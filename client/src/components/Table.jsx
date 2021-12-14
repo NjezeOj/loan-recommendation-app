@@ -7,9 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { useState} from 'react';
-//import axios from 'axios';
-import {userTransactions} from "./dummyData";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const columns = [
     { id: 'amount', label: 'Amount(N)', minWidth: 170 },
@@ -35,10 +34,10 @@ const columns = [
 export default function StickyHeadTable({identifier}) {
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
-    const [data] = useState(userTransactions)
+    const [data, setData] = useState([])
 
     
-    /* const getTableData = async () => {
+    const getTableData = async () => {
 
         const res = await axios.get(`https://elevatei4g.herokuapp.com/api/v1/user/transactions/${identifier}`);
 
@@ -50,7 +49,7 @@ export default function StickyHeadTable({identifier}) {
 
         getTableData();
 
-    }) */
+    })
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
